@@ -7,9 +7,7 @@
     "url": "https://github.com/hildjj/package-extract/issues"
   },
   "type": "module",
-  "bin": {
-    "bin/package-extract": "bin/package-extract.js"
-  },
+  "bin": "bin/package-extract.js",
   "main": "lib/index.js",
   "types": "types/lib/index.d.ts",
   "scripts": {
