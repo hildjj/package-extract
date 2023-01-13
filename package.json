@@ -2,27 +2,44 @@
   "name": "package-extract",
   "version": "0.0.0",
   "description": "Extract fields from package.json into an ES6 module",
+  "homepage": "https://github.com/hildjj/package-extract",
+  "bugs": {
+    "url": "https://github.com/hildjj/package-extract/issues"
+  },
   "type": "module",
   "bin": {
     "bin/package-extract": "bin/package-extract.js"
   },
   "scripts": {
     "lint": "eslint . --ext js",
-    "test": "echo \"Error: no test specified\" && exit '1'",
+    "test": "ava",
+    "coverage": "c8 -r lcov npm run test",
     "build": "./bin/package-extract.js"
   },
-  "keywords": [],
+  "keywords": [
+    "package.json",
+    "version",
+    "extract",
+    "multiple",
+    "code",
+    "import",
+    "es6",
+    "genversion"
+  ],
   "author": "Joe Hildebrand <joe-github@cursive.net>",
   "license": "MIT",
+  "dependencies": {
+    "commander": "9.5.0"
+  },
   "devDependencies": {
     "@cto.af/eslint-config": "1.0.0",
+    "ava": "5.1.0",
+    "c8": "7.12.0",
     "eslint": "8.31.0",
+    "eslint-plugin-ava": "13.2.0",
     "eslint-plugin-node": "11.1.0"
   },
   "engines": {
     "node": ">=14"
-  },
-  "dependencies": {
-    "commander": "9.5.0"
   }
 }
