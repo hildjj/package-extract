@@ -17,7 +17,8 @@
     "test": "ava",
     "coverage": "c8 -r lcov npm run test",
     "build": "./bin/package-extract.js && npm run types",
-    "types": "tsc"
+    "types": "tsc",
+    "version": "npm run build && git add package.js types/package.d.ts"
   },
   "keywords": [
     "package.json",
