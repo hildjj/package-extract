@@ -1,4 +1,5 @@
 .eslintrc.cjs
-coverage/
+.gitattributes
 .github/
+coverage/
 test/
