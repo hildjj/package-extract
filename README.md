@@ -27,6 +27,17 @@ npx package-extract -o lib/package.js name version homepage
 
 Note that you can extract fields that have structure, like `scripts`.
 
+It is most convenient to run this script when you run `npm version`.  To do
+so, add this to your package.json:
+
+```json
+{
+  "scripts": {
+    "version": "package-extract && git add package.js"
+  }
+}
+```
+
 ## Use
 
 ```js
