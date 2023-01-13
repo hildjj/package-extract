@@ -62,9 +62,28 @@ Options:
   -p, --package            package file to extract from, found from cwd,
                            searching up
   -s, --semi               add semicolons to the end of each variable
+  --startDir <dir>         start looking from this directory, toward the root
+                           (default: process.cwd())
   -t, --trailing           Add trailing commas
   -V, --version            output the version number
   -h, --help               display help for command
+```
+
+## API
+
+```js
+import {packageExtract} from 'package-extract'
+
+// All options are optional, have the same defaults as the CLI.
+await packageExtract({
+  double: false,
+  indent: 2,
+  output: 'package.js',
+  package: 'package.json',
+  semi: false,
+  startDir: process.cwd(),
+  trailing: false
+}, ['version', 'name'])
 ```
 
 ## Other tools
@@ -78,3 +97,6 @@ Why not use?
   Doesn't support ES6.
 - [browserify-versionify](https://github.com/webpro/versionify): Doesn't
   extract fields other than version, only works in a browserify setup.
+
+[![Tests](https://github.com/hildjj/package-extract/actions/workflows/node.js.yml/badge.svg)](https://github.com/hildjj/package-extract/actions/workflows/node.js.yml)
+[![codecov](https://codecov.io/gh/hildjj/package-extract/branch/main/graph/badge.svg?token=KS07IJA51Z)](https://codecov.io/gh/hildjj/package-extract)
