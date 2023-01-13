@@ -1,0 +1,28 @@
+{
+  "name": "package-extract",
+  "version": "0.0.0",
+  "description": "Extract fields from package.json into an ES6 module",
+  "type": "module",
+  "bin": {
+    "bin/package-extract": "bin/package-extract.js"
+  },
+  "scripts": {
+    "lint": "eslint . --ext js",
+    "test": "echo \"Error: no test specified\" && exit '1'",
+    "build": "./bin/package-extract.js"
+  },
+  "keywords": [],
+  "author": "Joe Hildebrand <joe-github@cursive.net>",
+  "license": "MIT",
+  "devDependencies": {
+    "@cto.af/eslint-config": "1.0.0",
+    "eslint": "8.31.0",
+    "eslint-plugin-node": "11.1.0"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "dependencies": {
+    "commander": "9.5.0"
+  }
+}
