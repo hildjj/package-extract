@@ -1,6 +1,6 @@
 {
   "name": "package-extract",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Extract fields from package.json into an ES6 module",
   "homepage": "https://github.com/hildjj/package-extract",
   "bugs": {
