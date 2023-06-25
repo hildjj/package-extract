@@ -1,7 +1,6 @@
 import {fileURLToPath} from 'url'
 import {packageExtract} from '../lib/index.js'
 import path from 'path'
-// eslint-disable-next-line node/no-missing-import
 import test from 'ava'
 import {unlink} from 'fs/promises'
 import {version} from '../package.js'
