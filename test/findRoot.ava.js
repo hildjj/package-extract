@@ -1,7 +1,6 @@
 import {fileURLToPath} from 'url'
 import {findRoot} from '../lib/findRoot.js'
 import path from 'path'
-// eslint-disable-next-line node/no-missing-import
 import test from 'ava'
 
 test('findRoot', async t => {
