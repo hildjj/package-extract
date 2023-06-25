@@ -3,3 +3,4 @@
 .github/
 coverage/
 test/
+tsconfig.json
