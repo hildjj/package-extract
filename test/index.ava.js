@@ -52,6 +52,7 @@ test('indent tab', async t => {
     double: true,
   };
   await packageExtract(opts, ['engines']);
+  out = out.replace(/\r\n/g, '\n');
   t.snapshot(out);
 });
 
@@ -65,6 +66,7 @@ test('indent zero', async t => {
     indent: 0,
     semi: true,
   };
-  await packageExtract(opts, ['engines']);
+  await packageExtract(opts, ['keywords']);
+  out = out.replace(/\r\n/g, '\n');
   t.snapshot(out);
 });
