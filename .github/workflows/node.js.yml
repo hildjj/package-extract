@@ -5,39 +5,30 @@ on:
     branches:
       - main
   pull_request:
-    branches: ['*']
+    branches: '*'
 
 jobs:
   build:
-
     strategy:
       matrix:
-        node-version: [16.x, 18.x, 20.x]
+        node-version: [18.x, 18.x, 22.x]
         os: [ubuntu-latest, windows-latest, macos-latest]
 
     runs-on: ${{ matrix.os }}
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8.6.3
+      - uses: actions/checkout@v4
+      - run: corepack enable
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: pnpm
       - name: Install dependencies
         run: pnpm install
-      - name: Check coding standards
-        run: npm run lint
-      - name: Test with coverage
-        run: npm run coverage
+      - name: Run full build
+        run: npm run build
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
-          files: coverage/lcov.info
-          env_vars: OS,NODE
-          name: codecov-umbrella
-          fail_ci_if_error: false
-          verbose: true
+          token: ${{ secrets.CODECOV_TOKEN }}

@@ -15,7 +15,7 @@
     "test": "ava",
     "coverage": "c8 -r lcov npm run test",
     "ver": "./bin/package-extract.js -s",
-    "build": "npm run ver && npm run types",
+    "build": "npm run ver && npm run types && npm test && npm run lint && npm pack --dry-run",
     "types": "tsc",
     "version": "npm run ver && npm run build && git add package.js types/package.d.ts"
   },
@@ -41,6 +41,7 @@
     "c8": "10.1.2",
     "eslint": "9.9.1",
     "eslint-plugin-ava": "15.0.1",
+    "eslint-plugin-markdown": "5.1.0",
     "eslint-plugin-node": "11.1.0",
     "typescript": "5.5.4"
   },
