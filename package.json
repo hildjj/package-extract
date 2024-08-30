@@ -11,12 +11,13 @@
   "main": "lib/index.js",
   "types": "types/lib/index.d.ts",
   "scripts": {
-    "lint": "eslint . --ext js",
+    "lint": "eslint .",
     "test": "ava",
     "coverage": "c8 -r lcov npm run test",
-    "build": "./bin/package-extract.js && npm run types",
+    "ver": "node ./bin/package-extract.js -s",
+    "build": "npm run ver && npm run types && npm test && npm run lint && npm pack --dry-run",
     "types": "tsc",
-    "version": "npm run build && git add package.js types/package.d.ts"
+    "version": "npm run ver && npm run build && git add package.js types/package.d.ts"
   },
   "keywords": [
     "package.json",
@@ -31,19 +32,21 @@
   "author": "Joe Hildebrand <joe-github@cursive.net>",
   "license": "MIT",
   "dependencies": {
-    "commander": "11.0.0"
+    "commander": "12.1.0"
   },
   "devDependencies": {
-    "@cto.af/eslint-config": "2.0.1",
-    "@types/node": "20.3.1",
-    "ava": "5.3.1",
-    "c8": "8.0.0",
-    "eslint": "8.43.0",
-    "eslint-plugin-ava": "14.0.0",
+    "@cto.af/eslint-config": "4.1.6",
+    "@types/node": "22.5.1",
+    "ava": "6.1.3",
+    "c8": "10.1.2",
+    "eslint": "9.9.1",
+    "eslint-plugin-ava": "15.0.1",
+    "eslint-plugin-markdown": "5.1.0",
     "eslint-plugin-node": "11.1.0",
-    "typescript": "5.1.3"
+    "typescript": "5.5.4"
   },
+  "packageManager": "pnpm@9.9.0",
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   }
 }

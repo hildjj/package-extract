@@ -1,19 +1,19 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
 
-import {Command, InvalidArgumentError} from 'commander'
-import {packageExtract} from '../lib/index.js'
-import {version} from '../package.js'
+import {Command, InvalidArgumentError} from 'commander';
+import {packageExtract} from '../lib/index.js';
+import {version} from '../package.js';
 
-function myParseInt(value, dummyPrevious) {
-  const parsedValue = parseInt(value, 10)
+function myParseInt(value, _dummyPrevious) {
+  const parsedValue = parseInt(value, 10);
   if (isNaN(parsedValue)) {
-    throw new InvalidArgumentError('Not a number.')
+    throw new InvalidArgumentError('Not a number.');
   }
-  return parsedValue
+  return parsedValue;
 }
 
-const program = new Command()
+const program = new Command();
 program
   .argument('[fields...]', 'fields to extract from package file', ['version'])
   .option('-d, --double', 'use double quotes')
@@ -23,11 +23,11 @@ program
   .option('-s, --semi', 'add semicolons to the end of each variable')
   .option('--startDir <dir>', 'start looking from this directory, toward the root', process.cwd())
   .option('-t, --trailing', 'Add trailing commas')
-  .version(version)
+  .version(version);
 
-program.parse()
+program.parse();
 
 packageExtract(program.opts(), program.args).catch(er => {
-  console.error(er.message)
-  process.exit(1)
-})
+  console.error(er.message);
+  process.exit(1);
+});
