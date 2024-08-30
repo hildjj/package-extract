@@ -2,12 +2,18 @@
   "name": "package-extract",
   "version": "2.0.1",
   "description": "Extract fields from package.json into an ES6 module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hildjj/package-extract.git"
+  },
   "homepage": "https://github.com/hildjj/package-extract",
   "bugs": {
     "url": "https://github.com/hildjj/package-extract/issues"
   },
   "type": "module",
-  "bin": "bin/package-extract.js",
+  "bin": {
+    "package-extract": "bin/package-extract.js"
+  },
   "main": "lib/index.js",
   "types": "types/lib/index.d.ts",
   "scripts": {
