@@ -14,7 +14,7 @@
     "lint": "eslint .",
     "test": "ava",
     "coverage": "c8 -r lcov npm run test",
-    "ver": "./bin/package-extract.js -s",
+    "ver": "node ./bin/package-extract.js -s",
     "build": "npm run ver && npm run types && npm test && npm run lint && npm pack --dry-run",
     "types": "tsc",
     "version": "npm run ver && npm run build && git add package.js types/package.d.ts"
