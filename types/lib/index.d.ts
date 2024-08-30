@@ -39,7 +39,7 @@ export type ExtractOpts = {
     /**
      * How to log to stdout.
      */
-    log?: (string) => void;
+    log?: (string: any) => void;
     /**
      * Filename for output, or "-" for
      * stdout.
