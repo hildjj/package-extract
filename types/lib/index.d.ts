@@ -15,13 +15,18 @@
  *   search from.
  * @property {boolean} [trailing=false] Add trailing commas for objects or
  *   arrays?
+ * @property {boolean} [types=false] Attempt to add typescript type comments
+ *   to extracted items.
+ */
+/**
+ * @typedef {Required<ExtractOpts>} RequiredExtractOpts
  */
 /**
  * Extract one or more fields from a JSON file.
- * @param {ExtractOpts} opts
+ * @param {ExtractOpts} options
  * @param {string[]} [fields=['version']]
  */
-export function packageExtract(opts?: ExtractOpts, fields?: string[]): Promise<void>;
+export function packageExtract(options?: ExtractOpts, fields?: string[]): Promise<void>;
 /**
  * packageExtract options
  */
@@ -65,4 +70,10 @@ export type ExtractOpts = {
      * arrays?
      */
     trailing?: boolean;
+    /**
+     * Attempt to add typescript type comments
+     * to extracted items.
+     */
+    types?: boolean;
 };
+export type RequiredExtractOpts = Required<ExtractOpts>;
