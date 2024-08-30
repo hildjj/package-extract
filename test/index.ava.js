@@ -40,3 +40,33 @@ export const version = '${version}'
   await packageExtract({...opts, output});
   await unlink(output);
 });
+
+test('indent tab', async t => {
+  let out = null;
+  const opts = {
+    log(str) {
+      out = str;
+    },
+    output: '-',
+    indent: -1,
+    double: true,
+  };
+  await packageExtract(opts, ['engines']);
+  out = out.replace(/\r\n/g, '\n');
+  t.snapshot(out);
+});
+
+test('indent zero', async t => {
+  let out = null;
+  const opts = {
+    log(str) {
+      out = str;
+    },
+    output: '-',
+    indent: 0,
+    semi: true,
+  };
+  await packageExtract(opts, ['keywords']);
+  out = out.replace(/\r\n/g, '\n');
+  t.snapshot(out);
+});

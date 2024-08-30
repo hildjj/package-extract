@@ -56,6 +56,10 @@ test('zero indent', t => {
   t.is(stringify({1: 2}, z), '{ 1: 2 }');
   t.is(stringify({1: 2, 3: 4}, z), '{ 1: 2, 3: 4 }');
   t.is(stringify([1, 2], z), '[ 1, 2 ]');
+  t.is(stringify([
+    'package.json',
+    'version',
+  ], z), '[ "package.json", "version" ]');
 });
 test('invalid', t => {
   t.throws(() => stringify(Symbol('BAD')));

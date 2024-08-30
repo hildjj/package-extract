@@ -13,11 +13,11 @@
  * Note: This only handles value types that can be parsed from JSON!
  *
  * @param {any} val The value to stringify
- * @param {StringifyOpts} opts Options
+ * @param {StringifyOpts} options Options
  * @param {number} [depth=0] Depth into the object tree
  * @returns {string} The stringified version
  */
-export function stringify(val: any, opts: StringifyOpts, depth?: number): string;
+export function stringify(val: any, options: StringifyOpts, depth?: number): string;
 /**
  * Stringify options
  */
