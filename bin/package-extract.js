@@ -16,6 +16,7 @@ function myParseInt(value, _dummyPrevious) {
 const program = new Command();
 program
   .argument('[fields...]', 'fields to extract from package file', ['version'])
+  .option('-c, --commonJS', 'create a commonJS file instead of ESM')
   .option('-d, --double', 'use double quotes')
   .option('-i, --indent <number>', 'number of spaces to indent. -1 for tab. 0 for no newlines.', myParseInt, 2)
   .option('-o, --output <filename>', 'name of output file, relative to package.json.  Use "-" for stdout.', 'package.js')
