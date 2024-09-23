@@ -6,10 +6,13 @@
  * @property {number} [indent=2] Number of spaces to indent. <0 for tabs. 0
  *   for no newlines.
  * @property {(string) => void} [log=console.log] How to log to stdout.
- * @property {string} [output="package.js"] Filename for output, or "-" for
- *   stdout.
+ * @property {string|URL} [output="package.js"] Filename for output, or "-"
+ *   for stdout.
  * @property {string} [package="package.json"] Package file to extract from,
  *   found from cwd, searching up
+ * @property {string} [regex] If given, regular expression to replace instead
+ *   of regenerating output.  Regex should have named matching group to
+ *   replace, where the matching group name is the desired field.
  * @property {boolean} [semi=false] Add semicolons to the end of each
  *   variable.
  * @property {string} [startDir=process.cwd()] Which directory to start the
@@ -51,15 +54,21 @@ export type ExtractOpts = {
      */
     log?: (string: any) => void;
     /**
-     * Filename for output, or "-" for
-     * stdout.
+     * Filename for output, or "-"
+     * for stdout.
      */
-    output?: string;
+    output?: string | URL;
     /**
      * Package file to extract from,
      * found from cwd, searching up
      */
     package?: string;
+    /**
+     * If given, regular expression to replace instead
+     * of regenerating output.  Regex should have named matching group to
+     * replace, where the matching group name is the desired field.
+     */
+    regex?: string;
     /**
      * Add semicolons to the end of each
      * variable.

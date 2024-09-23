@@ -55,6 +55,32 @@ export const version = '0.0.0';
 export const homepage = 'https://github.com/hildjj/package-extract';
 ```
 
+## Modifying files with a regular expression
+
+Sometimes, version information is embedded in a file that package-extract
+did not create.  In these instances, you can use `--regex`, with a regex that
+specifies what to change.  In the regex, leave a
+[named capturing group](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group)
+whose name is the package.json field you want to insert at the given point.
+It can be useful to use
+[look-behind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion)
+and [look-ahead](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion)
+assertions to ensure that you do not match anything other than the field you
+intend to replace.  For instance:
+
+```sh
+package-extract -o docs/index.html -r '(?<=https:\/\/unpkg.com\/peggy@)(?<version>\d+\.\d+\.\d+)(?=\/browser\/peggy\.min\.js)'
+```
+
+would update this snippet with the current version number:
+
+```html
+<a title="Download a minified version of Peggy for the browser"
+  href="https://unpkg.com/peggy@4.0.3/browser/peggy.min.js">minified</a>
+```
+
+would
+
 ## Command line options
 
 ```text
@@ -65,6 +91,7 @@ Arguments:
                            ["version"])
 
 Options:
+  -c, --commonJS           create a commonJS file instead of ESM
   -d, --double             use double quotes
   -i, --indent <number>    number of spaces to indent. -1 for tab. 0 for no
                            newlines. (default: 2)
@@ -72,9 +99,13 @@ Options:
                            "-" for stdout. (default: "package.js")
   -p, --package            package file to extract from, found from cwd,
                            searching up
+  -r, --regex <regex>      Regular expression to replace instead of
+                           regenerating output.  Regex should have named
+                           matching group to replace, where the matching group
+                           name is the desired field
   -s, --semi               add semicolons to the end of each variable
   --startDir <dir>         start looking from this directory, toward the root
-                           (default: process.cwd())
+                           (default: "/Users/hildjj/track/package-extract")
   -t, --trailing           Add trailing commas
   -V, --version            output the version number
   -h, --help               display help for command

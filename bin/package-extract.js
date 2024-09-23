@@ -21,6 +21,7 @@ program
   .option('-i, --indent <number>', 'number of spaces to indent. -1 for tab. 0 for no newlines.', myParseInt, 2)
   .option('-o, --output <filename>', 'name of output file, relative to package.json.  Use "-" for stdout.', 'package.js')
   .option('-p, --package', 'package file to extract from, found from cwd, searching up', 'package.json')
+  .option('-r, --regex <regex>', 'Regular expression to replace instead of regenerating output.  Regex should have named matching group to replace, where the matching group name is the desired field')
   .option('-s, --semi', 'add semicolons to the end of each variable')
   .option('--startDir <dir>', 'start looking from this directory, toward the root', process.cwd())
   .option('-t, --trailing', 'Add trailing commas')
