@@ -1,5 +1,6 @@
 /**
  * @typedef {Object} ExtractOpts packageExtract options
+ * @property {boolean} [commonJS=false] Create a commonJS file instead of ESM
  * @property {boolean} [double=false] True for double quotes, otherwise single
  *   quotes
  * @property {number} [indent=2] Number of spaces to indent. <0 for tabs. 0
@@ -31,6 +32,10 @@ export function packageExtract(options?: ExtractOpts, fields?: string[]): Promis
  * packageExtract options
  */
 export type ExtractOpts = {
+    /**
+     * Create a commonJS file instead of ESM
+     */
+    commonJS?: boolean;
     /**
      * True for double quotes, otherwise single
      * quotes
