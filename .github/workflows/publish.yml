@@ -18,6 +18,9 @@ jobs:
           cache: pnpm
       - run: pnpm i
       - run: npm run build
+      - run: npm pkg delete devDependencies
+      - name: Rebuild pnpm-lock.yaml
+        run: pnpm i --no-frozen-lockfile
       - run: npm publish --access public --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

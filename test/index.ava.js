@@ -1,8 +1,8 @@
+import {readFile, unlink, writeFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import {packageExtract} from '../lib/index.js';
 import path from 'node:path';
 import test from 'ava';
-import {unlink} from 'node:fs/promises';
 import {version} from '../package.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -87,4 +87,24 @@ test('indent zero', async t => {
   };
   await packageExtract(opts, ['keywords']);
   t.regex(out, /keywords/);
+});
+
+test('regex', async t => {
+  const output = new URL('./fixtures/index.html', import.meta.url);
+  const orig = await readFile(output, 'utf8');
+  await packageExtract({
+    output,
+    regex: '(?<=https:\\/\\/unpkg.com\\/peggy@)(?<version>\\d+\\.\\d+\\.\\d+)(?=\\/browser\\/peggy\\.min\\.js)',
+  });
+  let mod = await readFile(output, 'utf8');
+  t.regex(mod, new RegExp(version.replace(/\./g, '\\.')));
+
+  await packageExtract({
+    output,
+    regex: '(?<=https:\\/\\/unpkg.com\\/peggy@)(?<__UNKNOWN_FIELD__>\\d+\\.\\d+\\.\\d+)(?=\\/browser\\/peggy\\.min\\.js)',
+  });
+  mod = await readFile(output, 'utf8');
+  t.regex(mod, new RegExp(version.replace(/\./g, '\\.')));
+
+  await writeFile(output, orig);
 });
