@@ -1,6 +1,6 @@
 {
   "name": "package-extract",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Extract fields from package.json into an ES6 module",
   "repository": {
     "type": "git",
