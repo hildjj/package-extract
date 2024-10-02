@@ -21,6 +21,8 @@
  *   arrays?
  * @property {boolean} [types=false] Attempt to add typescript type comments
  *   to extracted items.
+ * @property {boolean} [unlessPreRelease=false] Only perform the action if
+ * this is not a pre-release
  */
 /**
  * @typedef {Required<ExtractOpts>} RequiredExtractOpts
@@ -89,5 +91,10 @@ export type ExtractOpts = {
      * to extracted items.
      */
     types?: boolean;
+    /**
+     * Only perform the action if
+     * this is not a pre-release
+     */
+    unlessPreRelease?: boolean;
 };
 export type RequiredExtractOpts = Required<ExtractOpts>;

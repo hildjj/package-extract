@@ -108,3 +108,31 @@ test('regex', async t => {
 
   await writeFile(output, orig);
 });
+
+test('unlessPreRelease', async t => {
+  let out = '';
+  const opts = {
+    log(str) {
+      out += str;
+    },
+    package: path.join(__dirname, 'fixtures', 'prerelease.json'),
+    unlessPreRelease: true,
+  };
+
+  await packageExtract(opts);
+  t.is(out, '');
+});
+
+test('unlessPreRelease invalid', async t => {
+  let out = '';
+  const opts = {
+    log(str) {
+      out += str;
+    },
+    package: path.join(__dirname, 'fixtures', 'invalidVersion.json'),
+    unlessPreRelease: true,
+  };
+
+  await t.throwsAsync(() => packageExtract(opts));
+  t.is(out, '');
+});

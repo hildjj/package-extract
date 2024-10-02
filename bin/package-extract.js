@@ -23,6 +23,7 @@ program
   .option('-p, --package', 'package file to extract from, found from cwd, searching up', 'package.json')
   .option('-r, --regex <regex>', 'Regular expression to replace instead of regenerating output.  Regex should have named matching group to replace, where the matching group name is the desired field')
   .option('-s, --semi', 'add semicolons to the end of each variable')
+  .option('-u, --unlessPreRelease', 'only perform the action if this is not a pre-release')
   .option('--startDir <dir>', 'start looking from this directory, toward the root', process.cwd())
   .option('-t, --trailing', 'Add trailing commas')
   .version(version);
