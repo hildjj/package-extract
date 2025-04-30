@@ -1,13 +1,20 @@
-import {readFile, unlink, writeFile} from 'node:fs/promises';
+import {after, test} from 'node:test';
+import {fileURLToPath, pathToFileURL} from 'node:url';
+import {mkdtemp, readFile, rm, stat, unlink, writeFile} from 'node:fs/promises';
 import assert from 'node:assert';
-import {fileURLToPath} from 'node:url';
 import {packageExtract} from '../lib/index.js';
 import path from 'node:path';
-import {test} from 'node:test';
+import {tmpdir} from 'node:os';
 import {version} from '../package.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+const tmp = await mkdtemp(path.join(tmpdir(), 'package-extract-test-'));
+
+after(async() => {
+  await rm(tmp, {recursive: true});
+});
 
 test('packageExtract', async() => {
   let out = null;
@@ -40,6 +47,18 @@ export const version = '${version}'
   const output = path.join(__dirname, 'testOutput.js');
   await packageExtract({...opts, output});
   await unlink(output);
+});
+
+test('mkdir', async() => {
+  const opts = {
+    output: path.join(tmp, 'foo', 'bar', 'package.js'),
+  };
+  await packageExtract(opts);
+  await stat(opts.output);
+
+  opts.output = pathToFileURL(path.join(tmp, 'bar', 'foo', 'package.js'));
+  await packageExtract(opts);
+  await stat(opts.output);
 });
 
 test('commonJS', async() => {
