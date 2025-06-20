@@ -11,4 +11,12 @@ export default [
   ...base,
   ...mod,
   ...markdown,
+  {
+    files: [
+      '*.md/*.js',
+    ],
+    rules: {
+      'n/no-top-level-await': 'off',
+    },
+  },
 ];
