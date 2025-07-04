@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
 
 import {Command, InvalidArgumentError, Option} from 'commander';
 import {packageExtract} from '../lib/index.js';
