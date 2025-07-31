@@ -12,11 +12,11 @@ const __dirname = path.dirname(__filename);
 
 const tmp = await mkdtemp(path.join(tmpdir(), 'package-extract-test-'));
 
-after(async() => {
+after(async () => {
   await rm(tmp, {recursive: true});
 });
 
-test('packageExtract', async() => {
+test('packageExtract', async () => {
   let out = null;
   const opts = {
     log(str) {
@@ -49,7 +49,7 @@ export const version = '${version}'
   await unlink(output);
 });
 
-test('mkdir', async() => {
+test('mkdir', async () => {
   const opts = {
     output: path.join(tmp, 'foo', 'bar', 'package.js'),
   };
@@ -61,7 +61,7 @@ test('mkdir', async() => {
   await stat(opts.output);
 });
 
-test('commonJS', async() => {
+test('commonJS', async () => {
   let out = null;
   const opts = {
     log(str) {
@@ -81,7 +81,7 @@ exports.version = '${version}'
 `);
 });
 
-test('indent tab', async() => {
+test('indent tab', async () => {
   let out = null;
   const opts = {
     log(str) {
@@ -95,7 +95,7 @@ test('indent tab', async() => {
   assert.match(out, /engines/);
 });
 
-test('indent zero', async() => {
+test('indent zero', async () => {
   let out = null;
   const opts = {
     log(str) {
@@ -109,7 +109,7 @@ test('indent zero', async() => {
   assert.match(out, /keywords/);
 });
 
-test('regex', async() => {
+test('regex', async () => {
   const output = new URL('./fixtures/index.html', import.meta.url);
   const orig = await readFile(output, 'utf8');
   await packageExtract({
@@ -129,7 +129,7 @@ test('regex', async() => {
   await writeFile(output, orig);
 });
 
-test('unlessPreRelease', async() => {
+test('unlessPreRelease', async () => {
   let out = '';
   const opts = {
     log(str) {
@@ -143,7 +143,7 @@ test('unlessPreRelease', async() => {
   assert.equal(out, '');
 });
 
-test('unlessPreRelease invalid', async() => {
+test('unlessPreRelease invalid', async () => {
   let out = '';
   const opts = {
     log(str) {
