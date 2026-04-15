@@ -6,8 +6,10 @@
     "checkJs": true,
     "declaration": true,
     "emitDeclarationOnly": true,
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
+    "module": "nodenext",
     "outDir": "types",
-    "target": "ES2021"
+    "target": "ES2021",
+    "types": ["node"]
   }
 }

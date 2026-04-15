@@ -5,14 +5,14 @@
  *   quotes
  * @property {number} [indent=2] Number of spaces to indent. <0 for tabs. 0
  *   for no newlines.
- * @property {(string) => void} [log=console.log] How to log to stdout.
+ * @property {(msg: string) => void} [log=console.log] How to log to stdout.
  * @property {string|URL} [output="package.js"] Filename for output, or "-"
  *   for stdout.
  * @property {string} [package="package.json"] Package file to extract from,
  *   found from cwd, searching up
- * @property {string} [regex] If given, regular expression to replace instead
- *   of regenerating output.  Regex should have named matching group to
- *   replace, where the matching group name is the desired field.
+ * @property {string|null} [regex] If given, regular expression to
+ *   replace instead of regenerating output.  Regex should have named matching
+ *   group to replace, where the matching group name is the desired field.
  * @property {boolean} [semi=false] Add semicolons to the end of each
  *   variable.
  * @property {string} [startDir=process.cwd()] Which directory to start the
@@ -40,61 +40,61 @@ export type ExtractOpts = {
     /**
      * Create a commonJS file instead of ESM
      */
-    commonJS?: boolean;
+    commonJS?: boolean | undefined;
     /**
      * True for double quotes, otherwise single
      * quotes
      */
-    double?: boolean;
+    double?: boolean | undefined;
     /**
      * Number of spaces to indent. <0 for tabs. 0
      * for no newlines.
      */
-    indent?: number;
+    indent?: number | undefined;
     /**
      * How to log to stdout.
      */
-    log?: (string: any) => void;
+    log?: ((msg: string) => void) | undefined;
     /**
      * Filename for output, or "-"
      * for stdout.
      */
-    output?: string | URL;
+    output?: string | URL | undefined;
     /**
      * Package file to extract from,
      * found from cwd, searching up
      */
-    package?: string;
+    package?: string | undefined;
     /**
-     * If given, regular expression to replace instead
-     * of regenerating output.  Regex should have named matching group to
-     * replace, where the matching group name is the desired field.
+     * If given, regular expression to
+     * replace instead of regenerating output.  Regex should have named matching
+     * group to replace, where the matching group name is the desired field.
      */
-    regex?: string;
+    regex?: string | null | undefined;
     /**
      * Add semicolons to the end of each
      * variable.
      */
-    semi?: boolean;
+    semi?: boolean | undefined;
     /**
      * Which directory to start the
      * search from.
      */
-    startDir?: string;
+    startDir?: string | undefined;
     /**
      * Add trailing commas for objects or
      * arrays?
      */
-    trailing?: boolean;
+    trailing?: boolean | undefined;
     /**
      * Attempt to add typescript type comments
      * to extracted items.
      */
-    types?: boolean;
+    types?: boolean | undefined;
     /**
      * Only perform the action if
      * this is not a pre-release
      */
-    unlessPreRelease?: boolean;
+    unlessPreRelease?: boolean | undefined;
 };
 export type RequiredExtractOpts = Required<ExtractOpts>;

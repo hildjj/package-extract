@@ -1,9 +1,9 @@
 /**
  * @typedef {Object} StringifyOpts Stringify options
- * @property {string} quote Which quote style to use
- * @property {string} indent The indent string, either spaces or tabs
- * @property {boolean} trailing Add trailing commas for objects or arrays?
- * @property {string} newline Line endings.  May be "".
+ * @property {string} [quote] Which quote style to use
+ * @property {string} [indent] The indent string, either spaces or tabs
+ * @property {boolean} [trailing] Add trailing commas for objects or arrays?
+ * @property {string} [newline] Line endings.  May be "".
  */
 /**
  * Turn a JS value into something quoted and indented such that it can be
@@ -25,17 +25,17 @@ export type StringifyOpts = {
     /**
      * Which quote style to use
      */
-    quote: string;
+    quote?: string | undefined;
     /**
      * The indent string, either spaces or tabs
      */
-    indent: string;
+    indent?: string | undefined;
     /**
      * Add trailing commas for objects or arrays?
      */
-    trailing: boolean;
+    trailing?: boolean | undefined;
     /**
      * Line endings.  May be "".
      */
-    newline: string;
+    newline?: string | undefined;
 };
