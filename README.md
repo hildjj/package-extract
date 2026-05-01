@@ -1,5 +1,27 @@
 # package-extract
 
+NOW OBSOLETE:
+
+If you are in node >=20.10 (>=20.18 if you want to avoid a warning), instead do this:
+
+```js
+import pkg from './package.json' with {type: 'json'};
+```
+
+For eslint, you need:
+
+```
+languageOptions: {
+  ecmaVersion: 2025,
+}
+```
+
+This was also backported to node 18.
+
+NOTE: this needs to be tested with major bundlers.
+
+PREVIOUS:
+
 Let's say you would like to extract multiple values from your `package.json`
 file into an ES6 module that you can easily import.  You might want access to
 the version, the package name, the homepage URL, etc.
