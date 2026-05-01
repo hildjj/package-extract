@@ -16,8 +16,8 @@ importers:
         version: 7.7.4
     devDependencies:
       '@cto.af/eslint-config':
-        specifier: ^6.2.8
-        version: 6.2.8(eslint@10.2.1)(typescript@6.0.3)
+        specifier: ^7.0.0
+        version: 7.0.0(eslint@10.2.1)(typescript@6.0.3)
       '@eslint/markdown':
         specifier: ^8.0.1
         version: 8.0.1
@@ -43,9 +43,9 @@ packages:
     resolution: {integrity: sha512-6zABk/ECA/QYSCQ1NGiVwwbQerUCZ+TQbp64Q3AgmfNvurHH0j8TtXa1qbShXA6qqkpAj4V5W8pP6mLe1mcMqA==}
     engines: {node: '>=18'}
 
-  '@cto.af/eslint-config@6.2.8':
-    resolution: {integrity: sha512-AD3B44PlP7smrrCW7JmLL16IID+e4fz6A7O39fi3y6tGypj9SbwQPYMDgTjWIjos7yUWk9RxrDEWXbquz2Nzzg==}
-    engines: {node: '>=20'}
+  '@cto.af/eslint-config@7.0.0':
+    resolution: {integrity: sha512-yBz7xIP92kUrkhzlSamg8fHZCquDoVyiTAAUK1uLXfzk0RLhXI8FopO2rTt2UyIN4cPMob4+6DqtBXSDuzTiqw==}
+    engines: {node: '>=22'}
 
   '@eslint-community/eslint-utils@4.9.1':
     resolution: {integrity: sha512-phrYmNiYppR7znFEdqgfWHXR6NCkZEK7hwWDHZUjit/2/U0r6XvkDl0SYnoM51Hq7FhCGdLDT6zxCCOY1hexsQ==}
@@ -918,7 +918,7 @@ snapshots:
 
   '@bcoe/v8-coverage@1.0.2': {}
 
-  '@cto.af/eslint-config@6.2.8(eslint@10.2.1)(typescript@6.0.3)':
+  '@cto.af/eslint-config@7.0.0(eslint@10.2.1)(typescript@6.0.3)':
     dependencies:
       '@eslint/json': 1.2.0
       '@stylistic/eslint-plugin': 5.10.0(eslint@10.2.1)
