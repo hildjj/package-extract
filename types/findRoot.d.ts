@@ -8,4 +8,4 @@
  * @returns {Promise<string>} The full path of the file that was found,
  *   rejects if none is found or if there is a symlink loop.
  */
-export function findRoot(startDir: string, packageName: string): Promise<string>;
+export declare function findRoot(startDir: string, packageName: string): Promise<string>;

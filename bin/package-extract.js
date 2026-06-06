@@ -2,7 +2,7 @@
 
 import {Command, InvalidArgumentError, Option} from 'commander';
 import {packageExtract} from '../lib/index.js';
-import {version} from '../package.js';
+import {version} from '../lib/package.js';
 
 function myParseInt(value, _dummyPrevious) {
   const parsedValue = parseInt(value, 10);
