@@ -15,7 +15,7 @@
     "package-extract": "bin/package-extract.js"
   },
   "main": "lib/index.js",
-  "types": "types/lib/index.d.ts",
+  "types": "./types",
   "files": [
     "package.js",
     "bin",
