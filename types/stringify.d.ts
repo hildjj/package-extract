@@ -1,3 +1,9 @@
+export type StringifyOpts = {
+    quote?: string;
+    indent?: string;
+    trailing?: boolean;
+    newline?: string;
+};
 /**
  * @typedef {Object} StringifyOpts Stringify options
  * @property {string} [quote] Which quote style to use
@@ -17,25 +23,4 @@
  * @param {number} [depth=0] Depth into the object tree
  * @returns {string} The stringified version
  */
-export function stringify(val: any, options: StringifyOpts, depth?: number): string;
-/**
- * Stringify options
- */
-export type StringifyOpts = {
-    /**
-     * Which quote style to use
-     */
-    quote?: string | undefined;
-    /**
-     * The indent string, either spaces or tabs
-     */
-    indent?: string | undefined;
-    /**
-     * Add trailing commas for objects or arrays?
-     */
-    trailing?: boolean | undefined;
-    /**
-     * Line endings.  May be "".
-     */
-    newline?: string | undefined;
-};
+export declare function stringify(val: any, options: StringifyOpts, depth?: number): string;

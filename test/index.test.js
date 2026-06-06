@@ -5,7 +5,7 @@ import assert from 'node:assert';
 import {packageExtract} from '../lib/index.js';
 import path from 'node:path';
 import {tmpdir} from 'node:os';
-import {version} from '../package.js';
+import {version} from '../lib/package.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

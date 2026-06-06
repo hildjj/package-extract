@@ -1,0 +1,50 @@
+export type ExtractOpts = {
+    commonJS?: boolean;
+    double?: boolean;
+    indent?: number;
+    log?: (msg: string) => void;
+    output?: string | URL;
+    package?: string;
+    regex?: string | null;
+    semi?: boolean;
+    startDir?: string;
+    trailing?: boolean;
+    types?: boolean;
+    unlessPreRelease?: boolean;
+};
+export type RequiredExtractOpts = Required<ExtractOpts>;
+/**
+ * @typedef {Object} ExtractOpts packageExtract options
+ * @property {boolean} [commonJS=false] Create a commonJS file instead of ESM
+ * @property {boolean} [double=false] True for double quotes, otherwise single
+ *   quotes
+ * @property {number} [indent=2] Number of spaces to indent. <0 for tabs. 0
+ *   for no newlines.
+ * @property {(msg: string) => void} [log=console.log] How to log to stdout.
+ * @property {string|URL} [output="package.js"] Filename for output, or "-"
+ *   for stdout.
+ * @property {string} [package="package.json"] Package file to extract from,
+ *   found from cwd, searching up
+ * @property {string|null} [regex] If given, regular expression to
+ *   replace instead of regenerating output.  Regex should have named matching
+ *   group to replace, where the matching group name is the desired field.
+ * @property {boolean} [semi=false] Add semicolons to the end of each
+ *   variable.
+ * @property {string} [startDir=process.cwd()] Which directory to start the
+ *   search from.
+ * @property {boolean} [trailing=false] Add trailing commas for objects or
+ *   arrays?
+ * @property {boolean} [types=false] Attempt to add typescript type comments
+ *   to extracted items.
+ * @property {boolean} [unlessPreRelease=false] Only perform the action if
+ * this is not a pre-release
+ */
+/**
+ * @typedef {Required<ExtractOpts>} RequiredExtractOpts
+ */
+/**
+ * Extract one or more fields from a JSON file.
+ * @param {ExtractOpts} options
+ * @param {string[]} [fields=['version']]
+ */
+export declare function packageExtract(options?: ExtractOpts, fields?: string[]): Promise<void>;

@@ -9,6 +9,7 @@
     "moduleResolution": "nodenext",
     "module": "nodenext",
     "outDir": "types",
+    "rootDir": "lib",
     "target": "ES2021",
     "types": ["node"]
   }
