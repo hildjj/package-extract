@@ -28,7 +28,7 @@
     "ver": "node ./bin/package-extract.js -s -o lib/package.js",
     "build": "npm run ver && npm run types && npm test && npm run lint && npm pack --dry-run",
     "types": "tsgo",
-    "version": "npm run ver && npm run build && git add package.js types/package.d.ts"
+    "version": "npm run ver && npm run build && git add lib/package.js types/package.d.ts"
   },
   "keywords": [
     "package.json",
