@@ -1,7 +1,19 @@
 export type StringifyOpts = {
+    /**
+     * Which quote style to use
+     */
     quote?: string;
+    /**
+     * The indent string, either spaces or tabs
+     */
     indent?: string;
+    /**
+     * Add trailing commas for objects or arrays?
+     */
     trailing?: boolean;
+    /**
+     * Line endings.  May be "".
+     */
     newline?: string;
 };
 /**

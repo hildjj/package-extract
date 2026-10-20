@@ -1,7 +1,7 @@
 import {after, test} from 'node:test';
 import {fileURLToPath, pathToFileURL} from 'node:url';
 import {mkdtemp, readFile, rm, stat, unlink, writeFile} from 'node:fs/promises';
-import assert from 'node:assert';
+import assert from 'node:assert/strict';
 import {packageExtract} from '../lib/index.js';
 import path from 'node:path';
 import {tmpdir} from 'node:os';

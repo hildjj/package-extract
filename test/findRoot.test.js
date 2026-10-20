@@ -1,4 +1,4 @@
-import assert from 'node:assert';
+import assert from 'node:assert/strict';
 import {fileURLToPath} from 'node:url';
 import {findRoot} from '../lib/findRoot.js';
 import path from 'node:path';
