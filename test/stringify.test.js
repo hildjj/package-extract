@@ -1,4 +1,4 @@
-import assert from 'node:assert';
+import assert from 'node:assert/strict';
 import {stringify} from '../lib/stringify.js';
 import {test} from 'node:test';
 

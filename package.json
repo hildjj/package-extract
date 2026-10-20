@@ -27,7 +27,7 @@
     "test": "c8 node --test",
     "ver": "node ./bin/package-extract.js -s -o lib/package.js",
     "build": "npm run ver && npm run types && npm test && npm run lint && npm pack --dry-run",
-    "types": "tsgo",
+    "types": "tsc",
     "version": "npm run ver && npm run build && git add lib/package.js types/package.d.ts"
   },
   "keywords": [
@@ -44,18 +44,19 @@
   "license": "MIT",
   "dependencies": {
     "commander": "~15.0.0",
-    "semver": "~7.8.2"
+    "semver": "~7.8.5"
   },
   "devDependencies": {
-    "@cto.af/eslint-config": "^7.0.2",
-    "@eslint/markdown": "^8.0.2",
-    "@typescript/native-preview": "7.0.0-dev.20260606.1",
-    "@types/node": "^25.9.2",
-    "@types/semver": "^7.7.1",
-    "eslint": "^10.4.1",
-    "superc8": "^12.7.0"
+    "@cto.af/eslint-config": "^7.0.3",
+    "@eslint/markdown": "^8.0.3",
+    "@types/node": "^26.6.5",
+    "@types/semver": "^7.8.0",
+    "@typescript/native": "npm:typescript@^7.0.2",
+    "eslint": "^10.12.0",
+    "superc8": "^12.7.0",
+    "typescript": "npm:@typescript/typescript6@^6.0.2"
   },
-  "packageManager": "pnpm@11.5.2",
+  "packageManager": "pnpm@12.13.0",
   "engines": {
     "node": ">=22"
   }
