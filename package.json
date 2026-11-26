@@ -43,20 +43,21 @@
   "author": "Joe Hildebrand <joe-github@cursive.net>",
   "license": "MIT",
   "dependencies": {
-    "commander": "~15.0.0",
-    "semver": "~7.8.5"
+    "commander": "~15.1.0",
+    "semver": "~7.8.6"
   },
   "devDependencies": {
-    "@cto.af/eslint-config": "^7.0.3",
-    "@eslint/markdown": "^8.0.3",
-    "@types/node": "^26.6.5",
+    "@cto.af/eslint-config": "^7.0.6",
+    "@cto.af/ncurc": "^0.0.3",
+    "@eslint/markdown": "^9.0.0",
+    "@types/node": "^26.6.6",
     "@types/semver": "^7.8.0",
     "@typescript/native": "npm:typescript@^7.0.2",
-    "eslint": "^10.12.0",
+    "eslint": "^10.15.0",
     "superc8": "^12.7.0",
     "typescript": "npm:@typescript/typescript6@^6.0.2"
   },
-  "packageManager": "pnpm@12.13.0",
+  "packageManager": "pnpm@12.22.0",
   "engines": {
     "node": ">=22"
   }

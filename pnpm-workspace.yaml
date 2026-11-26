@@ -1,4 +1,6 @@
-auditConfig:
-  ignoreGhsas:
-    - GHSA-238p-pmpm-9mq7
-    - GHSA-vfj7-8cjw-p6xm
+minimumReleaseAgeExclude:
+  - "@cto.af/eslint-config@7.0.6"
+overrides:
+  "glob": ~14.0.6
+  "micromark-extension-math@3.1.0>katex": 0.19.1
+  "minimatch": ~11.0.9
