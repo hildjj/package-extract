@@ -10,7 +10,7 @@ import pkg from './package.json' with {type: 'json'};
 
 For eslint, you need:
 
-```
+```js
 languageOptions: {
   ecmaVersion: 2025,
 }
